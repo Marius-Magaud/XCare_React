@@ -6,14 +6,16 @@ import Array_ProcessExecutionList from "./components/ProcessExecutionList.tsx";
 import use_FD_ProcessExecutionData from "./hooks/FD_ProcessExecutionList.tsx";
 
 const Query_Process = () => {
-    return (
-        <>
-            <div className="flex w-full" >
-                <Navbar/>
-                <Body/>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div className="flex w-full h-full">
+        <Navbar/>
+        <div className="ml-[17.1875%] min-h-full w-full bg-custom-gradient">
+         <Body/>
+        </div>
+      </div>
+    </>
+  );
 }
 
 
@@ -59,7 +61,7 @@ const Content = () => {
 
 const Body = () => {
     return (
-        <div className="flex bg-white flex-grow flex-col items-start">
+        <div className="flex flex-grow flex-col items-start">
             <Header />
             <Content />
         </div>

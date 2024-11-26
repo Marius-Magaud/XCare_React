@@ -8,12 +8,14 @@ import Array_LiveLogs   from "./components/LiveLogs.tsx";
 
 const Dashboard = () => {
   return (
-      <>
-      <div className="flex w-full" >
-          <Navbar/>
-          <Body/>
+    <>
+      <div className="flex w-full h-full">
+        <Navbar/>
+        <div className="ml-[17.1875%] h-full w-full bg-custom-gradient">
+         <Body/>
+        </div>
       </div>
-      </>
+    </>
   );
 }
 
@@ -43,8 +45,8 @@ const Content = () => {
 
 const Body = () => {
   return (
-    <div className="flex bg-white flex-grow flex-col items-start">
-      <Header />
+    <div className="flex flex-grow flex-col items-start">
+      <Header logo='Dashboard.svg'/>
       <Content />
     </div>
     );

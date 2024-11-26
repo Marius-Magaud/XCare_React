@@ -6,14 +6,16 @@ import Item from "../../components/Item.tsx";
 import Process_Versioning from "./components/ProcessVersioning.tsx";
 
 const Versioning_Process = () => {
-    return (
-        <>
-            <div className="flex w-full" >
-                <Navbar/>
-                <Body/>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div className="flex w-full h-full">
+        <Navbar/>
+        <div className="ml-[17.1875%] min-h-full w-full bg-custom-gradient">
+         <Body/>
+        </div>
+      </div>
+    </>
+  );
 }
 
 const Content = () => {
@@ -32,7 +34,7 @@ const Content = () => {
 
 const Body = () => {
     return (
-        <div className="flex bg-white flex-grow flex-col items-start">
+        <div className="flex flex-grow flex-col items-start">
             <Header title="Versioning - Process" subtitle="Discover your logs"/>
             <Content />
         </div>

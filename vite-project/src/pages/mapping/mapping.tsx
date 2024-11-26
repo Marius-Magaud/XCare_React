@@ -1,12 +1,8 @@
-
-import Header from "../../components/Header.tsx";
 import Navbar from "../../components/Navbar.tsx";
-import Item from "../../components/Item.tsx";
-import Array_QueryLogs from "./components/QueryLogs.tsx";
+import Header from "../../components/Header.tsx";
+import Item   from "../../components/Item.tsx";
 
-
-
-const Query_Logs = () => {
+const Mapping = () => {
   return (
     <>
       <div className="flex w-full h-full">
@@ -19,13 +15,14 @@ const Query_Logs = () => {
   );
 }
 
+
 const Content = () => {
     return (
         <div className="w-full px-[20px] flex flex-col box-border">
             <div className="h-[1230px] w-full flex box-border gap-[20px]">
                 <div className="h-full w-[100%]">
                     <Item title="Query Logs">
-                        <Array_QueryLogs/>
+
                     </Item>
                 </div>
             </div>
@@ -36,10 +33,10 @@ const Content = () => {
 const Body = () => {
     return (
         <div className="flex flex-grow flex-col items-start">
-            <Header title="Query - Logs" subtitle="Discover your logs"/>
+            <Header logo='Mapping.svg'/>
             <Content />
         </div>
     );
 };
 
-export default Query_Logs;
+export default Mapping

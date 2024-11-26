@@ -67,7 +67,7 @@ const Array_LiveLogs = () => {
                         <div className="flex items-center justify-center w-[7.211538462%] h-full">
                             {log.logger}
                         </div>
-                        <div className="flex items-center justify-center w-[59.13461538%] h-full">
+                        <div className="flex items-center justify-start w-[59.13461538%] h-full pl-[30px]">
                             {log.message}
                         </div>
                     </div>

@@ -34,6 +34,14 @@ const Array_QueryLogs = () => {
                 logger: "Server",
                 message: "Critical system failure detected",
             },
+            {
+                threadId: "4234",
+                sessionId: "8678",
+                level: "INFO",
+                timestamp: "2024-11-23 10:17:00",
+                logger: "Server",
+                message: "Info classic message",
+            },
         ];
 
         // Generate 100 logs by picking random samples

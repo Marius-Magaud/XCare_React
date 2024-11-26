@@ -1,4 +1,5 @@
 import {Component} from "react";
+import {useNavigate} from "react-router-dom";
 
 class Container extends Component<{ children: any }> {
   render() {
@@ -12,6 +13,10 @@ class Container extends Component<{ children: any }> {
 }
 
 const Left = () => {
+
+  const navigate = useNavigate();
+
+
   return (
 
     <div className="w-[716px] h-full">
@@ -52,7 +57,9 @@ const Left = () => {
         Forgot Password ?
       </div>
 
-      <div className="mt-[54px] ml-[83px] w-[584px] h-[70px] bg-[#002F5F] rounded-[10px] content-center">
+      <div className="mt-[54px] ml-[83px] w-[584px] h-[70px] bg-[#002F5F] rounded-[10px] content-center cursor-pointer"
+           onClick={() => navigate("/dashboard")}
+      >
         <div className="font-poppins font-semibold text-[22px] text-white">
           Login
         </div>
