@@ -9,7 +9,10 @@ module.exports = {
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(to bottom, #FBD0DE 0px, #FFFFFF 236px, #FFFFFF 100%)',
-      }
+      },
+      boxShadow: {
+        'custom': '0 4px 50px 2px rgba(0, 0, 0, 0.25)',
+      },
     },
   },
   plugins: [],

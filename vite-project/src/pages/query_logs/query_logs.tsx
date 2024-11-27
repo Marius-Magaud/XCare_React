@@ -2,7 +2,9 @@
 import Header from "../../components/Header.tsx";
 import Navbar from "../../components/Navbar.tsx";
 import Item from "../../components/Item.tsx";
+import Rightbar from "../../components/Rightbar.tsx";
 import Array_QueryLogs from "./components/QueryLogs.tsx";
+import Rightbar_Section from "../../components/Rightbar_Section.tsx";
 
 
 
@@ -14,6 +16,76 @@ const Query_Logs = () => {
                 <div className="ml-[17.1875%] min-h-full w-full bg-custom-gradient">
                     <Body/>
                 </div>
+                <Rightbar>
+                  <Rightbar_Section title="Logging Level">
+                    Tutututu <br/>
+                    Tutututu <br/>
+                    Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/>
+
+                    <br/><br/><br/><br/>
+                    MAX VERSTAPPEN
+                    <br/><br/>
+
+                  </Rightbar_Section>
+                  <Rightbar_Section title="TM1 Logger">
+                    Tutututu <br/>
+                    Tutututu <br/>
+                    Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/>
+
+                    <br/><br/><br/><br/>
+                    MAX VERSTAPPEN
+                    <br/><br/>
+
+                  </Rightbar_Section>
+                  <Rightbar_Section title="Date">
+                    Tutututu <br/>
+                    Tutututu <br/>
+                    Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/>
+
+                    <br/><br/><br/><br/>
+                    MAX VERSTAPPEN
+                    <br/><br/>
+
+                  </Rightbar_Section>
+                  <Rightbar_Section title="Text filtering">
+                    Tutututu <br/>
+                    Tutututu <br/>
+                    Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/> Tutututu <br/>
+                    Tutututu <br/>
+
+                    <br/><br/><br/><br/>
+                    MAX VERSTAPPEN
+                    <br/><br/>
+
+                  </Rightbar_Section>
+                </Rightbar>
             </div>
         </>
     );
@@ -33,10 +105,11 @@ const Content = () => {
     );
 };
 
+
 const Body = () => {
     return (
         <div className="flex flex-grow flex-col items-start">
-            <Header title="Query - Logs" subtitle="Discover your logs"/>
+            <Header title="Query - Logs" subtitle="Discover your logs" settings={true}/>
             <Content />
         </div>
     );
