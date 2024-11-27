@@ -6,16 +6,16 @@ import Array_ProcessExecutionList from "./components/ProcessExecutionList.tsx";
 import use_FD_ProcessExecutionData from "./hooks/FD_ProcessExecutionList.tsx";
 
 const Query_Process = () => {
-  return (
-    <>
-      <div className="flex w-full h-full">
-        <Navbar/>
-        <div className="ml-[17.1875%] min-h-full w-full bg-custom-gradient">
-         <Body/>
-        </div>
-      </div>
-    </>
-  );
+    return (
+        <>
+            <div className="flex w-full min-h-full">
+                <Navbar/>
+                <div className="ml-[17.1875%] min-h-full w-full bg-custom-gradient">
+                    <Body/>
+                </div>
+            </div>
+        </>
+    );
 }
 
 
@@ -48,8 +48,8 @@ const Content = () => {
                     </Item>
                 </div>
             </div>
-            <div className="h-[700px] w-full mt-[37px] flex box-border">
-                <div className="h-full w-full">
+            <div className="h-[700px] w-full mt-[37px] flex box-border mb-[10px]">
+                <div className="h-full w-full ">
                     <Item title="Last executions of selected process">
                         <Array_ProcessExecutionList executions={executions} />
                     </Item>

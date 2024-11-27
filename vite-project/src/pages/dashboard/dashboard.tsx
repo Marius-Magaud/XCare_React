@@ -9,9 +9,9 @@ import Array_LiveLogs   from "./components/LiveLogs.tsx";
 const Dashboard = () => {
   return (
     <>
-      <div className="flex w-full h-full">
+      <div className="flex w-full min-h-full">
         <Navbar/>
-        <div className="ml-[17.1875%] h-full w-full bg-custom-gradient">
+        <div className="ml-[17.1875%] min-h-full w-full bg-custom-gradient">
          <Body/>
         </div>
       </div>
@@ -32,7 +32,7 @@ const Content = () => {
           <Item title="Wait History"/>
         </div>
       </div>
-      <div className="h-[700px] w-full mt-[37px] flex box-border">
+      <div className="h-[700px] w-full mt-[37px] flex box-border mb-[10px]">
         <div className="h-full w-full">
           <Item title="Live Logs">
             <Array_LiveLogs/>
