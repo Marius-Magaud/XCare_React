@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, ReactNode } from "react";
 
-let toggleVisibilityCallback = null;
+let toggleVisibilityCallback: (() => void) | null = null;
 
-const Rightbar = ({ children }) => {
-  const [isVisible, setIsVisible] = useState(true); // Set to true to make it open by default
+const Rightbar: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [isVisible, setIsVisible] = useState(false); // Set to true to make it open by default
   const sidebarRef = useRef(null);
 
   const toggleVisibility = () => {
@@ -46,7 +46,7 @@ const Rightbar = ({ children }) => {
             className="w-[30px] h-[30px] justify-end cursor-pointer"
             onClick={toggleVisibility}
           >
-            <img src="/static/header/Cross.svg" alt="Close" />
+            <img src="/static/rightbar/Cross.svg" alt="Close" />
           </div>
         </div>
       </div>

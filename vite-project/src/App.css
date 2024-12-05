@@ -76,3 +76,21 @@ html, body {
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
 }
+
+.react-datepicker {
+  font-family: 'Poppins', sans-serif; /* Apply font to the picker */
+}
+
+.react-datepicker__header {
+  font-family: 'Poppins', sans-serif; /* Apply font to the header */
+}
+
+.react-datepicker__day,
+.react-datepicker__time-list-item {
+  font-family: 'Poppins', sans-serif; /* Apply font to days and time items */
+}
+
+.react-datepicker__current-month,
+.react-datepicker-time__header {
+  font-family: 'Poppins', sans-serif; /* Apply font to month and time headers */
+}

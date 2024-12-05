@@ -1,6 +1,7 @@
 import Navbar from "../../components/Navbar.tsx";
 import Header from "../../components/Header.tsx";
 import Item   from "../../components/Item.tsx";
+import BarChart from "../../components/charts/BarChart.tsx";
 import Array_ProcessList from "./components/ProcessList.tsx";
 import Array_ProcessExecutionList from "./components/ProcessExecutionList.tsx";
 import use_FD_ProcessExecutionData from "./hooks/FD_ProcessExecutionList.tsx";
@@ -41,7 +42,7 @@ const Content = () => {
                 <div className="h-full w-[40%]">
                     <Item title="Last executions of selected process">
                         {selectedProcess ? (
-                            <p>Selected Process: {selectedProcess.name}</p>
+                          <BarChart/>
                         ) : (
                             <p>Select a process to view details.</p>
                         )}

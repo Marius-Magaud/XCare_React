@@ -6,12 +6,13 @@ const Navbar = () => {
 
   const menuItems = [
     { label: 'Live View', path: '/dashboard', icon: '/static/menu/Dashboard.svg'},
-    { label: 'Versioning', path: '/versioning-process' , icon: '/static/menu/Versioning.svg'},
-    { label: 'Live delivery', path: '/', icon: '/static/menu/Dashboard.svg' },
+    { label: 'Versioning ', path: '/versioning-process' , icon: '/static/menu/Versioning.svg'},
+    { label: 'Live delivery | TODO', path: '/', icon: '/static/menu/Dashboard.svg' },
     { label: 'Query - Logs', path: '/query-logs', icon: '/static/menu/Query.svg' },
-    { label: 'Query - Process', path: '/query-process', icon: '/static/menu/Query.svg' },
-    { label: 'Statistics', path: '/', icon: '/static/menu/Statistics.svg' },
-    { label: 'Alerts', path: '/', icon: '/static/menu/Alerts.svg' },
+    { label: 'Query - Process ', path: '/query-process', icon: '/static/menu/Query.svg' },
+    { label: 'Statistics', path: '/statistics', icon: '/static/menu/Statistics.svg' },
+    { label: 'Alerts - Setup | TODO ', path: '/', icon: '/static/menu/Alerts.svg' },
+    { label: 'Alerts - Mailbox', path: '/alerts-mailbox', icon: '/static/menu/Alerts.svg' },
     { label: 'Mapping', path: '/mapping' , icon: '/static/menu/Mapping.svg'},
   ];
 

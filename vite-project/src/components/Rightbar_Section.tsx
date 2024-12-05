@@ -1,8 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 
-const Rightbar_Section = ({ children, title = "Default Title"}) => {
+const Rightbar_Section = ({ children, title = "Default Title" }) => {
   const [isOpen, setIsOpen] = useState(false); // Closed by default
-  const contentRef = useRef(null); // Reference for the collapsible content
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
@@ -26,17 +25,14 @@ const Rightbar_Section = ({ children, title = "Default Title"}) => {
           {title}
         </div>
       </div>
+
       {/* Collapsible Section */}
       <div
-        className="text-black"
-        ref={contentRef}
-        style={{
-          maxHeight: isOpen ? `${contentRef.current?.scrollHeight}px` : "0px",
-          transition: "max-height 0.3s ease-in-out",
-          overflow: "hidden",
-        }}
+        className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${
+          isOpen ? "max-h-[500px]" : "max-h-0"
+        }`}
       >
-        {children}
+        <div className="text-black">{children}</div>
       </div>
     </div>
   );

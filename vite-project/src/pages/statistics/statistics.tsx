@@ -1,44 +1,48 @@
 import Navbar from "../../components/Navbar.tsx";
 import Header from "../../components/Header.tsx";
 import Item   from "../../components/Item.tsx";
-
-import Array_LiveThread from "./components/LiveThreads.tsx";
-import Array_LiveLogs   from "./components/LiveLogs.tsx";
 import BarChart from "../../components/charts/BarChart.tsx";
 
 
-const Dashboard = () => {
+const Statistics = () => {
   return (
     <>
       <div className="flex w-full min-h-full">
         <Navbar/>
         <div className="ml-[17.1875%] min-h-full w-full bg-custom-gradient">
-         <Body/>
+          <Body/>
         </div>
       </div>
     </>
   );
 }
 
+
 const Content = () => {
+
   return (
     <div className="w-full px-[20px] flex flex-col box-border">
-      <div className="h-[500px] w-full flex box-border gap-[20px]">
-        <div className="h-full w-[60%]">
-          <Item title="Live Threads">
-            <Array_LiveThread/>
+      <div className="h-[600px] w-full flex box-border gap-[20px] mb-[20px]">
+        <div className="h-full w-[50%]">
+          <Item title="Process List">
+            <BarChart/>
           </Item>
         </div>
-        <div className="h-full w-[40%] ">
-          <Item title="Wait History">
+        <div className="h-full w-[50%]">
+          <Item title="Process List">
             <BarChart/>
           </Item>
         </div>
       </div>
-      <div className="h-[700px] w-full mt-[37px] flex box-border mb-[10px]">
-        <div className="h-full w-full">
-          <Item title="Live Logs">
-            <Array_LiveLogs/>
+      <div className="h-[600px] w-full flex box-border gap-[20px]">
+        <div className="h-full w-[50%]">
+          <Item title="Process List">
+            <BarChart/>
+          </Item>
+        </div>
+        <div className="h-full w-[50%]">
+          <Item title="Process List">
+            <BarChart/>
           </Item>
         </div>
       </div>
@@ -49,10 +53,10 @@ const Content = () => {
 const Body = () => {
   return (
     <div className="flex flex-grow flex-col items-start">
-      <Header logo='Dashboard.svg'/>
-      <Content />
+      <Header/>
+      <Content/>
     </div>
-    );
+  );
 };
 
-export default Dashboard;
+export default Statistics;
