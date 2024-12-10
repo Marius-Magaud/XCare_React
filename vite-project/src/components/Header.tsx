@@ -15,7 +15,7 @@ const Header = ({
                     </div>
                 </div>
             </div>
-            <div className="self-stretch pl-[3px] pt-[33px] pb-[9px] flex-col justify-end items-start gap-1.5 inline-flex">
+            <div className="self-stretch pl-[3px] pt-[13px] pb-[20px] flex-col justify-end items-start gap-1.5 inline-flex">
                 <div className="h-9 text-black text-3xl font-semibold font-['Poppins'] text-left">
                     {title}
                 </div>

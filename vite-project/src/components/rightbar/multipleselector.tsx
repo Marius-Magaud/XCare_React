@@ -49,7 +49,7 @@ const Multiple_Selector = ({label = ""}) => {
               alt="cross"
             />
           </div>
-          <div className="text-black font-poppins text-left text-[17px]">
+          <div className="text-black font-poppins text-left text-[16px]">
             {item}
           </div>
         </div>

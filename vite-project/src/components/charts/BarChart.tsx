@@ -14,57 +14,93 @@ import {
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const BarChart = () => {
-  // Sample data
+  // Sample data for days of the week
+  const dataValues = [35, 50, 20, 45, 60, 30, 25]; // Example values
+  const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
   const data = {
-    labels: [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ],
+    labels: daysOfWeek,
     datasets: [
       {
-        label: "2023 Sales ($)",
-        data: [1200, 1900, 800, 1500, 2400, 2000, 1700, 2200, 2500, 3000, 3100, 4000],
-        backgroundColor: "rgba(75, 192, 192, 0.5)",
-        borderColor: "rgba(75, 192, 192, 1)",
-        borderWidth: 1,
+        label: "Wait time in minutes",
+        data: dataValues,
+        backgroundColor: dataValues.map((value) =>
+            value > 40 ? "#ffcdd2" : "#ADD8E6"
+        ),
+        borderColor: dataValues.map((value) =>
+            value > 40 ? "#b71c1c" : "#4682B4"
+        ),
+        borderWidth: 2,
       },
     ],
   };
 
-  // Chart options
   const options = {
     responsive: true,
-    maintainAspectRatio: false, // Allows height to adapt
+    maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: "top",
+        display: false, // Disable legend
       },
-      title: {
-        display: true,
-        text: "Monthly Sales for 2023",
+      tooltip: {
+        backgroundColor: "rgba(0,0,0,0.5)",
+        bodyFont: {
+          size: 14,
+          family: "Poppins",
+        },
+        titleFont: {
+          size: 16,
+          family: "Poppins",
+        },
+        borderColor: "white",
+        borderWidth: 1,
       },
     },
     scales: {
       y: {
         beginAtZero: true,
+        ticks: {
+          color: "black",
+          font: {
+            size: 12,
+            family: "Poppins",
+          },
+        },
+        grid: {
+          color: "rgba(200, 200, 200, 0.2)",
+          borderColor: "white",
+        },
       },
+      x: {
+        ticks: {
+          color: "black",
+          font: {
+            size: 12,
+            family: "Poppins", // Apply Poppins font
+          },
+        },
+        grid: {
+          display: false,
+        },
+      },
+    },
+    animation: {
+      duration: 2000,
+      easing: "easeInOutBounce",
+    },
+    hover: {
+      mode: "index",
+      intersect: false,
     },
   };
 
   return (
-    <div style={{ height: "100%", width: "100%" }}> {/* Full height container */}
-      <Bar data={data} options={options} />
-    </div>
+      <div
+          className="p-[20px] font-poppins"
+          style={{ height: "100%", width: "100%", fontFamily: "Poppins" }}
+      >
+        <Bar data={data} options={options} />
+      </div>
   );
 };
 
