@@ -55,7 +55,7 @@ const Content = () => {
 const Body = () => {
   return (
     <div className="flex flex-grow flex-col items-start">
-      <Header title="Versioning - Process" subtitle="Discover your logs" settings={true}/>
+      <Header title="Versioning - Process" logo='Versioning.svg' subtitle="Discover your logs" settings={true}/>
       <Content/>
     </div>
   );

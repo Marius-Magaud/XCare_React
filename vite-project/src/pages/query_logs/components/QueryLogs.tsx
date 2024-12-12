@@ -44,11 +44,28 @@ const Array_QueryLogs = () => {
             },
         ];
 
-        // Generate 100 logs by picking random samples
-        return Array.from({ length: 100 }, () => {
-            const randomIndex = Math.floor(Math.random() * sampleLogs.length);
-            return sampleLogs[randomIndex];
+        const logs = [];
+
+        // Add 80 INFO logs
+        for (let i = 0; i < 80; i++) {
+            logs.push(sampleLogs.find(log => log.level === "INFO"));
+        }
+
+        // Add 5 logs for each of the other levels
+        const otherLevels = ["DEBUG", "WARN", "ERROR", "FATAL"];
+        otherLevels.forEach(level => {
+            for (let i = 0; i < 5; i++) {
+                logs.push(sampleLogs.find(log => log.level === level));
+            }
         });
+
+        // Shuffle the logs to randomize their order
+        for (let i = logs.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [logs[i], logs[j]] = [logs[j], logs[i]];
+        }
+
+        return logs;
     };
 
     const mockLogs = generateMockLogs();

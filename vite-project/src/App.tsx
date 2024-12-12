@@ -8,6 +8,7 @@ import Versioning_Process from "./pages/versioning_process/versioning_process.ts
 import Mapping from "./pages/mapping/mapping.tsx";
 import Alerts_mailbox from "./pages/alerts_mailbox/alerts_mailbox.tsx";
 import Statistics from "./pages/statistics/statistics.tsx";
+import Statistics_Treemap from "./pages/statistics_treemap/statistics_treemap.tsx";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/mapping" element={<Mapping/>}/>
         <Route path="/alerts-mailbox" element={<Alerts_mailbox/>}/>
         <Route path="/statistics" element={<Statistics/>}/>
+        <Route path="/statistics-treemap" element={<Statistics_Treemap/>}/>
 
       </Routes>
     </Router>

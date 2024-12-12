@@ -35,7 +35,7 @@ const Content = () => {
 const Body = () => {
   return (
     <div className="flex flex-grow flex-col items-start">
-      <Header title="Alerts - Mailbox" subtitle="Check what's happening with your alerts"/>
+      <Header title="Alerts - Mailbox" subtitle="Check what's happening with your alerts" logo="Alerts.svg"/>
       <Content />
     </div>
   );

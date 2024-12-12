@@ -2,6 +2,7 @@ import Navbar from "../../components/Navbar.tsx";
 import Header from "../../components/Header.tsx";
 import Item   from "../../components/Item.tsx";
 import BarChart from "../../components/charts/BarChart.tsx";
+import LineChart from "../../components/charts/LineChart.tsx";
 
 
 const Statistics = () => {
@@ -30,7 +31,7 @@ const Content = () => {
         </div>
         <div className="h-full w-[50%]">
           <Item title="Process List">
-            <BarChart/>
+            <LineChart/>
           </Item>
         </div>
       </div>
@@ -53,7 +54,7 @@ const Content = () => {
 const Body = () => {
   return (
     <div className="flex flex-grow flex-col items-start">
-      <Header/>
+      <Header logo="Statistics.svg"/>
       <Content/>
     </div>
   );

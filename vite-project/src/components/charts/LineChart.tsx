@@ -1,21 +1,22 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
 
 // Register Chart.js modules
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const BarChart = () => {
+const LineChart = () => {
   // Sample data for days of the week
-  const dataValues = [35, 50, 20, 45, 60, 10, 5]; // Example values
+  const dataValues = [35, 50, 20, 45, 60, 30, 25]; // Example values
   const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
   const data = {
@@ -24,14 +25,19 @@ const BarChart = () => {
       {
         label: "Wait time in minutes",
         data: dataValues,
-        backgroundColor: dataValues.map((value) =>
-            value > 40 ? "#ffcdd2" : "#ADD8E6"
-        ),
+        backgroundColor: "rgba(173, 216, 230, 0.3)", // Light blue for filled area
         borderColor: dataValues.map((value) =>
             value > 40 ? "#b71c1c" : "#4682B4"
         ),
-        // borderWidth: 2,
-        borderRadius: 10, // Adding border radius
+        borderWidth: 2,
+        pointBackgroundColor: dataValues.map((value) =>
+            value > 40 ? "#b71c1c" : "#4682B4"
+        ),
+        pointBorderColor: "#ffffff",
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        tension: 0.4, // Smooth curves
+        fill: true, // Fill the area under the line
       },
     ],
   };
@@ -44,8 +50,7 @@ const BarChart = () => {
         display: false, // Disable legend
       },
       tooltip: {
-        backgroundColor: "rgba(0,0,0,1)",
-        padding: "10",
+        backgroundColor: "rgba(0,0,0,0.5)",
         bodyFont: {
           size: 14,
           family: "Poppins",
@@ -54,6 +59,8 @@ const BarChart = () => {
           size: 16,
           family: "Poppins",
         },
+        borderColor: "white",
+        borderWidth: 1,
       },
     },
     scales: {
@@ -86,7 +93,7 @@ const BarChart = () => {
     },
     animation: {
       duration: 1000,
-      easing: "easeOutQuad",
+      easing: "easeOutQuart",
     },
     hover: {
       mode: "index",
@@ -99,9 +106,9 @@ const BarChart = () => {
           className="p-[20px] font-poppins"
           style={{ height: "100%", width: "100%", fontFamily: "Poppins" }}
       >
-        <Bar data={data} options={options} />
+        <Line data={data} options={options} />
       </div>
   );
 };
 
-export default BarChart;
+export default LineChart;
