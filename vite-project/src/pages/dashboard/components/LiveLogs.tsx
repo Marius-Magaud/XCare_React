@@ -57,7 +57,7 @@ const Array_LiveLogs = () => {
                     <div
                         key={index}
                         className={`flex w-full h-[40px] text-[16px] font-['Poppins'] ${getBackgroundColor(
-                            log.level
+                            log.Level
                         )}`}
                     >
                         <div className="flex items-center justify-center w-[7.211538462%] h-full">

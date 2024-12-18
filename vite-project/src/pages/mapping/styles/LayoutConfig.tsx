@@ -1,0 +1,15 @@
+export const LAYOUT_CONFIG_PRESET = {
+  quality: "default",
+  name: "fcose",
+  idealEdgeLength: 400,
+  edgeElasticity: 0.015,
+  nodeRepulsion: 10000000,
+  nodeSeparation: 1700,
+  numIter: 2500,
+  gravity: 0.000000001,
+  nodeOverlap: 2000,
+  sampleSize: 2000,
+  nestingFactor: 0.01,
+  userZoomingEnabled: false,
+  userPanningEnabled: false,
+};
