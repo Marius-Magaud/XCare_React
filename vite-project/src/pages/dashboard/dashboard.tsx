@@ -4,7 +4,8 @@ import Item   from "../../components/Item.tsx";
 
 import Array_LiveThread from "./components/LiveThreads.tsx";
 import Array_LiveLogs   from "./components/LiveLogs.tsx";
-import BarChart from "../../components/charts/BarChart.tsx";
+//import BarChart from "../../components/charts/BarChart.tsx";
+import LiveViewChart from "../../components/charts/LiveView.tsx";
 
 
 const Dashboard = () => {
@@ -13,7 +14,7 @@ const Dashboard = () => {
       <div className="flex w-full min-h-full">
         <Navbar/>
         <div className="ml-[17.1875%] min-h-full w-full bg-custom-gradient">
-         <Body/>
+          <Body/>
         </div>
       </div>
     </>
@@ -31,7 +32,7 @@ const Content = () => {
         </div>
         <div className="h-full w-[40%] ">
           <Item title="Wait History">
-            <BarChart/>
+            <LiveViewChart/>
           </Item>
         </div>
       </div>
