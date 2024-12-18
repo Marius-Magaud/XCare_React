@@ -1,8 +1,10 @@
 import Navbar from "../../components/Navbar.tsx";
 import Header from "../../components/Header.tsx";
 import Item   from "../../components/Item.tsx";
-import BarChart from "../../components/charts/BarChart.tsx";
 import LineChart from "../../components/charts/LineChart.tsx";
+import RamGarbage from "../../components/charts/RamGarbage.tsx";
+import ConnectedUser from "../../components/charts/ConnectedUser.tsx";
+import StartupTime from "../../components/charts/StartupTime.tsx";
 
 
 const Statistics = () => {
@@ -25,25 +27,25 @@ const Content = () => {
     <div className="w-full px-[20px] flex flex-col box-border">
       <div className="h-[600px] w-full flex box-border gap-[20px] mb-[20px]">
         <div className="h-full w-[50%]">
-          <Item title="Process List">
-            <BarChart/>
+          <Item title="RAM & Garbage Use">
+            <RamGarbage/>
           </Item>
         </div>
         <div className="h-full w-[50%]">
-          <Item title="Process List">
-            <LineChart/>
+          <Item title="Connected Users">
+            <ConnectedUser/>
           </Item>
         </div>
       </div>
       <div className="h-[600px] w-full flex box-border gap-[20px]">
         <div className="h-full w-[50%]">
-          <Item title="Process List">
-            <BarChart/>
+          <Item title="Startup Time Historic">
+            <StartupTime/>
           </Item>
         </div>
         <div className="h-full w-[50%]">
-          <Item title="Process List" >
-            <BarChart/>
+          <Item title="Active Threads">
+            <LineChart/>
           </Item>
         </div>
       </div>
@@ -54,7 +56,8 @@ const Content = () => {
 const Body = () => {
   return (
     <div className="flex flex-grow flex-col items-start">
-      <Header logo="Statistics.svg"/>
+      <Header subtitle="Discover your resource statistics.
+" logo="Statistics.svg" title="Statistics" />
       <Content/>
     </div>
   );
