@@ -1,19 +1,17 @@
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
 
 // Register Chart.js modules
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-// Helper function to generate months
 const generateMonths = (startDate: Date, endDate: Date): string[] => {
   const months = [];
   const currentDate = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
@@ -26,41 +24,26 @@ const generateMonths = (startDate: Date, endDate: Date): string[] => {
   return months;
 };
 
-// Generate cumulative data
-const generateCumulativeData = (months: string[]): number[] => {
-  const dataValues: number[] = [];
-  let cumulativeTotal = 0;
-
-  for (let i = 0; i < months.length; i++) {
-    const randomValue = Math.floor(Math.random() * 50 + 10); // Random value between 10 and 60
-    cumulativeTotal += randomValue; // Add current value to cumulative total
-    dataValues.push(cumulativeTotal);
-  }
-
-  return dataValues;
-};
-
-const LineChart = () => {
+const StartupTime = () => {
   const startDate = new Date(new Date().getFullYear(), 0, 1); // Jan 1st of the current year
   const endDate = new Date(); // Today
   const months = generateMonths(startDate, endDate);
-  const dataValues = generateCumulativeData(months);
+  const usersNumber = Array(months.length)
+  .fill(null)
+  .map(() => Math.floor(Math.random() * (20 - 6 + 1) + 6)); // Values between 100 and 220
+
+  // Sample data for days of the week
+  const dataValues = usersNumber
+  const daysOfWeek = months
 
   const data = {
-    labels: months,
+    labels: daysOfWeek,
     datasets: [
       {
-        label: "Active Threads",
+        label: "Startup time by month",
         data: dataValues,
-        backgroundColor: "rgba(173, 216, 230, 0.3)", // Light blue for filled area
-        borderColor: "#4682B4", // Line color
-        borderWidth: 2,
-        pointBackgroundColor: "#4682B4",
-        pointBorderColor: "#ffffff",
-        pointBorderWidth: 2,
-        pointRadius: 5,
-        tension: 0.4, // Smooth curves
-        fill: true, // Fill the area under the line
+        backgroundColor: "#8ac477",
+        borderRadius: 10, // Adding border radius
       },
     ],
   };
@@ -73,7 +56,8 @@ const LineChart = () => {
         display: true,
       },
       tooltip: {
-        backgroundColor: "rgba(0,0,0,0.5)",
+        backgroundColor: "rgba(0,0,0,1)",
+        padding: "10",
         bodyFont: {
           size: 14,
           family: "Poppins",
@@ -82,8 +66,6 @@ const LineChart = () => {
           size: 16,
           family: "Poppins",
         },
-        borderColor: "white",
-        borderWidth: 1,
       },
     },
     scales: {
@@ -106,7 +88,7 @@ const LineChart = () => {
           color: "black",
           font: {
             size: 12,
-            family: "Poppins",
+            family: "Poppins", // Apply Poppins font
           },
         },
         grid: {
@@ -116,7 +98,7 @@ const LineChart = () => {
     },
     animation: {
       duration: 1000,
-      easing: "easeOutQuart",
+      easing: "easeOutQuad",
     },
     hover: {
       mode: "index",
@@ -125,13 +107,13 @@ const LineChart = () => {
   };
 
   return (
-    <div
-      className="p-[20px] font-poppins"
-      style={{ height: "100%", width: "100%", fontFamily: "Poppins" }}
-    >
-      <Line data={data} options={options} />
-    </div>
+      <div
+          className="p-[20px] font-poppins"
+          style={{ height: "100%", width: "100%", fontFamily: "Poppins" }}
+      >
+        <Bar data={data} options={options} />
+      </div>
   );
 };
 
-export default LineChart;
+export default StartupTime;
