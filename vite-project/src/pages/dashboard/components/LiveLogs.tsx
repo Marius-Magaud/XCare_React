@@ -1,7 +1,15 @@
 import FD_LiveLogs from "../hooks/FD_LiveLogs.tsx";
+import RD_LiveLogs from "../hooks/RD_LiveLogs.tsx";
+import useGlobalStore from "../../../store/golbal_store.tsx";
+
 
 const Array_LiveLogs = () => {
-    const logs = FD_LiveLogs(50, 1000); // Use the custom hook
+
+    // Get the isDemo value from Zustand store
+    const { isDemo } = useGlobalStore();
+
+    // Fetch rows using the appropriate hook based on isDemo value
+    const logs = isDemo ? FD_LiveLogs(50, 1000) : RD_LiveLogs();
 
     // Function to determine the background color based on the log level
     const getBackgroundColor = (level) => {
@@ -53,22 +61,22 @@ const Array_LiveLogs = () => {
                         )}`}
                     >
                         <div className="flex items-center justify-center w-[7.211538462%] h-full">
-                            {log.threadId}
+                            {log.ThreadID}
                         </div>
                         <div className="flex items-center justify-center w-[7.211538462%] h-full">
-                            {log.sessionId}
+                            {log.SessionID}
                         </div>
                         <div className="flex items-center justify-center w-[7.211538462%] h-full">
-                            {log.level}
+                            {log.Level}
                         </div>
                         <div className="flex items-center justify-center w-[12.01923077%] h-full">
-                            {log.timestamp}
+                            {!isDemo ? log.TimeStamp.slice(0, -4) : log.TimeStamp}
                         </div>
                         <div className="flex items-center justify-center w-[7.211538462%] h-full">
-                            {log.logger}
+                            {log.Logger}
                         </div>
                         <div className="flex items-center justify-start w-[59.13461538%] h-full pl-[30px]">
-                            {log.message}
+                            {log.Message}
                         </div>
                     </div>
                 ))}

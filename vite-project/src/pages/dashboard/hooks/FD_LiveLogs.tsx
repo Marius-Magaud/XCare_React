@@ -112,12 +112,12 @@ const createPreciseLog = (previousTimestamp) => {
     const timestampStr = now.toISOString().replace("T", " ").slice(0, 19);
 
     return {
-        timestamp: timestampStr,
-        level: randomCombination.LEVEL,
-        logger: randomCombination.LOGGER,
-        threadId: Math.floor(Math.random() * 1000),
-        sessionId: Math.floor(Math.random() * 10000),
-        message,
+        TimeStamp: timestampStr,
+        Level: randomCombination.LEVEL,
+        Logger: randomCombination.LOGGER,
+        ThreadID: Math.floor(Math.random() * 1000),
+        SessionID: Math.floor(Math.random() * 10000),
+        Message : message,
     };
 };
 
