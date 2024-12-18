@@ -42,7 +42,7 @@ const ConnectedUser = () => {
       {
         label: "Total users by month",
         data: dataValues,
-        backgroundColor: "#5b90bd",
+        backgroundColor: "#ADD8E6",
         borderRadius: 10, // Adding border radius
       },
     ],

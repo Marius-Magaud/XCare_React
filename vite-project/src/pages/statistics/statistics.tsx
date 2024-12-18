@@ -56,7 +56,8 @@ const Content = () => {
 const Body = () => {
   return (
     <div className="flex flex-grow flex-col items-start">
-      <Header logo="Statistics.svg"/>
+      <Header subtitle="Discover your resource statistics.
+" logo="Statistics.svg" title="Statistics" />
       <Content/>
     </div>
   );

@@ -42,7 +42,7 @@ const StartupTime = () => {
       {
         label: "Startup time by month",
         data: dataValues,
-        backgroundColor: "#8ac477",
+        backgroundColor: "#B2DFDB",
         borderRadius: 10, // Adding border radius
       },
     ],

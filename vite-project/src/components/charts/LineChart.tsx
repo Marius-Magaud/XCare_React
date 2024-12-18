@@ -52,10 +52,10 @@ const LineChart = () => {
       {
         label: "Active Threads",
         data: dataValues,
-        backgroundColor: "rgba(173, 216, 230, 0.3)", // Light blue for filled area
-        borderColor: "#4682B4", // Line color
+        backgroundColor: "#797896", // Light blue for filled area
+        borderColor: "#797896", // Line color
         borderWidth: 2,
-        pointBackgroundColor: "#4682B4",
+        pointBackgroundColor: "#797896",
         pointBorderColor: "#ffffff",
         pointBorderWidth: 2,
         pointRadius: 5,

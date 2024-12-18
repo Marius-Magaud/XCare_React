@@ -34,7 +34,8 @@ const Content = () => {
 const Body = () => {
     return (
         <div className="flex flex-grow flex-col items-start ">
-            <Header logo="Statistics.svg"/>
+            <Header subtitle="Discover your process statistics.
+" logo="Statistics.svg" title="Statistics - treemap" />
             <Content />
         </div>
     );
