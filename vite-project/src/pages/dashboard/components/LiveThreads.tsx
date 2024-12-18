@@ -15,7 +15,7 @@ const Array_LiveThread = () => {
   // Get the isDemo value from Zustand store
   const { isDemo } = useGlobalStore();
 
-  // Fetch rows using the appropriate hook based on isDemo value
+  // Fetch rows using the appropriate hooks based on isDemo value
   const rows: Row[] = isDemo ? FD_Live_Threads() : RD_LiveThreads();
 
   return (

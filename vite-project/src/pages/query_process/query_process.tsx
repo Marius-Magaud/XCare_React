@@ -26,7 +26,7 @@ const Content = () => {
         executions,
         selectedRowIndex,
         handleProcessClick,
-    } = use_FD_ProcessExecutionData(); // Use the custom hook
+    } = use_FD_ProcessExecutionData(); // Use the custom hooks
 
     return (
         <div className="w-full px-[20px] flex flex-col box-border">

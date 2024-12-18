@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-// Custom hook for polling API
+// Custom hooks for polling API
 const use_FD_LiveThread = () => {
     const [rows, setRows] = useState([]);
 

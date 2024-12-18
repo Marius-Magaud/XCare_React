@@ -1,6 +1,7 @@
 import Navbar from "../../components/Navbar.tsx";
 import Header from "../../components/Header.tsx";
 import Item   from "../../components/Item.tsx";
+import CytoscapeGraph from "./components/CytoscapeGraph.tsx";
 
 const Mapping = () => {
     return (
@@ -22,7 +23,7 @@ const Content = () => {
             <div className="h-[1230px] w-full flex box-border gap-[20px] mb-[10px]">
                 <div className="h-full w-[100%]">
                     <Item title="Query Logs">
-
+                        <CytoscapeGraph/>
                     </Item>
                 </div>
             </div>
@@ -33,7 +34,7 @@ const Content = () => {
 const Body = () => {
     return (
         <div className="flex flex-grow flex-col items-start">
-            <Header logo='Mapping.svg'/>
+            <Header logo='Mapping.svg' settings={true}/>
             <Content />
         </div>
     );
