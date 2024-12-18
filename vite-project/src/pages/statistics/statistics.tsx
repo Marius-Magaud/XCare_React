@@ -42,7 +42,7 @@ const Content = () => {
           </Item>
         </div>
         <div className="h-full w-[50%]">
-          <Item title="Process List">
+          <Item title="Process List" >
             <BarChart/>
           </Item>
         </div>

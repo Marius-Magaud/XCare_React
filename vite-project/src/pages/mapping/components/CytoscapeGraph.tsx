@@ -1,165 +1,113 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CytoscapeComponent from "react-cytoscapejs";
 import cytoscape from "cytoscape";
 import fcose from "cytoscape-fcose";
+import RD_CytoscapeGraph from "../hooks/RD_CytoscapeGraph";
+import { NODE_IMAGE_STYLE, NODE_STYLE, EDGE_STYLE } from "../styles/NodeStyles";
+import { LAYOUT_CONFIG_PRESET } from "../styles/LayoutConfig";
+import applyDynamicNodeStyles from "../styles/DynamicStyle";
+import useStoreMapping from "../store/STORE_mapping.tsx";
 
 // Register the fcose layout
 cytoscape.use(fcose);
 
 const CytoscapeGraph = () => {
   const cyRef = useRef(null);
+  const [cytoscapeElements, setCytoscapeElements] = useState([]);
 
-  // Example elements
-  const elements = [
-    {
-      data: { id: "node1", label: "Cube Node", categories: "Cube", color: "#3498db", size: 60 },
-    },
-    {
-      data: { id: "node2", label: "Process Node", categories: "Process", color: "#2ecc71", size: 60 },
-    },
-    {
-      data: { id: "node3", label: "Dimension Node", categories: "Dimension", color: "#e74c3c", size: 60 },
-    },
-    {
-      data: { id: "node4", label: "Chore Node", categories: "Chore", color: "#9b59b6", size: 60 },
-    },
-    { data: { source: "node1", target: "node2", color: "#7f8c8d", width: 3 } },
-    { data: { source: "node2", target: "node3", color: "#7f8c8d", width: 3 } },
-    { data: { source: "node3", target: "node4", color: "#7f8c8d", width: 3 } },
-  ];
+  // Access the store actions
+  const setSelectedNodeId = useStoreMapping((state) => state.setSelectedNodeId);
 
-  const defaultTextBackgroundColor = "white";
+  // Function to fetch and apply graph data
+  const fetchAndApplyGraphData = async () => {
+    try {
+      const elements = await RD_CytoscapeGraph();
 
-  // Node styles
-  const NODE_IMAGE_STYLE = {
-    label: "data(label)",
-    "background-image": "data(image)",
-    "background-fit": "contain",
-    width: "90%",
-    height: "90%",
-  };
+      if (elements?.Nodes && elements?.Edges) {
+        const formattedElements = [
+          ...elements.Nodes.map((node) => ({ data: node.data })),
+          ...elements.Edges.map((edge) => ({ data: edge.data })),
+        ];
+        setCytoscapeElements(formattedElements);
 
-  const NODE_STYLE = {
-    label: "data(label)",
-    "background-color": "data(color)",
-    width: "data(size)",
-    height: "data(size)",
-    "text-background-opacity": 0,
-    "text-background-padding": "3px",
-    "font-size": "data(fontsize)",
-    color: sessionStorage.getItem("theme") === "dark" ? "white" : "black",
-  };
-
-  const EDGE_STYLE = {
-    "curve-style": "unbundled-bezier",
-    width: "data(width)",
-    "line-color": "data(color)",
-    "source-arrow-color": "data(color)",
-    "target-arrow-color": "data(color)",
-    "target-arrow-shape": "triangle",
-    "arrow-scale": 1.5,
-    opacity: 1,
-  };
-
-  const LAYOUT_CONFIG = [
-    {
-      selector: "node[image]",
-      style: NODE_IMAGE_STYLE,
-    },
-    {
-      selector: "node",
-      style: NODE_STYLE,
-    },
-    {
-      selector: "edge",
-      style: EDGE_STYLE,
-    },
-  ];
-
-  const LAYOUT_CONFIG_PRESET = {
-    quality: "default",
-    name: "fcose",
-    idealEdgeLength: 400,
-    edgeElasticity: 0.025,
-    nodeRepulsion: 1000000,
-    nodeSeparation: 1700,
-    numIter: 2500,
-    gravity: 0.000000001,
-    nodeOverlap: 2000,
-    sampleSize: 2000,
-    nestingFactor: 0.01,
-    userZoomingEnabled: false,
-    userPanningEnabled: false,
-  };
-
-  // Function to apply styles based on categories
-  const getCytoscapeStyle = (node) => {
-    const category = node.data("categories");
-    if (category === "Cube") {
-      node.style({
-        shape: "ellipse",
-        "background-image": "url(/static/mapping/cube-mapping.png)", // Replace with actual path
-        "background-fit": "cover",
-        "background-color": node.data("color"),
-        "text-background-color": defaultTextBackgroundColor,
-        "text-background-opacity": 0,
-      });
-    } else if (category === "Process") {
-      node.style({
-        shape: "ellipse",
-        "background-image": "url(/static/mapping/process-mapping.png)", // Replace with actual path
-        "background-fit": "cover",
-        "background-color": node.data("color"),
-        "background-opacity": 1,
-        "text-background-color": defaultTextBackgroundColor,
-        "text-background-opacity": 0,
-      });
-    } else if (category === "Dimension") {
-      node.style({
-        shape: "ellipse",
-        "background-image": "url(/static/mapping/dimension-mapping.png)", // Replace with actual path
-        "background-fit": "cover",
-        "background-color": node.data("color"),
-        "background-opacity": 1,
-        "text-background-color": defaultTextBackgroundColor,
-        "text-background-opacity": 0,
-      });
-    } else if (category === "Chore") {
-      node.style({
-        shape: "ellipse",
-        "background-image": "url(/static/mapping/process-mapping.png)", // Replace with actual path
-        "background-fit": "cover",
-        "background-color": node.data("color"),
-        "background-opacity": 1,
-        "text-background-color": defaultTextBackgroundColor,
-        "text-background-opacity": 0,
-      });
+        // Re-run the layout after updating elements
+        if (cyRef.current) {
+          const cy = cyRef.current;
+          cy.elements().remove(); // Clear existing elements
+          cy.add(formattedElements); // Add the new elements
+          const layout = cy.layout(LAYOUT_CONFIG_PRESET); // Reinitialize the layout
+          layout.run(); // Run the layout
+        }
+      } else {
+        console.error("Invalid data format from RD_CytoscapeGraph");
+      }
+    } catch (error) {
+      console.error("Failed to fetch graph data:", error);
     }
   };
 
-  // Apply dynamic styles to nodes on graph initialization
+  // Initial data fetch
+  useEffect(() => {
+    fetchAndApplyGraphData();
+  }, []);
+
   useEffect(() => {
     if (cyRef.current) {
       const cy = cyRef.current;
+
       cy.ready(() => {
         cy.nodes().forEach((node) => {
-          getCytoscapeStyle(node);
+          applyDynamicNodeStyles(node);
         });
       });
+
+      cy.on("add", "node", (evt) => {
+        applyDynamicNodeStyles(evt.target);
+      });
+
+      // Add click event listener for nodes
+      cy.on("tap", "node", (evt) => {
+        const nodeId = evt.target.data("id"); // Get the node's ID
+        setSelectedNodeId(nodeId); // Update the store with the selected node ID
+      });
     }
+  }, [cytoscapeElements, setSelectedNodeId]);
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === "r" || event.key === "R") {
+        fetchAndApplyGraphData(); // Re-fetch data and re-run layout
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress); // Clean up the event listener
+    };
   }, []);
+
+  const stylesheet = [
+    { selector: "node[image]", style: NODE_IMAGE_STYLE },
+    { selector: "node", style: NODE_STYLE },
+    { selector: "edge", style: EDGE_STYLE },
+  ];
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <CytoscapeComponent
-        elements={elements}
-        style={{ width: "100%", height: "100%" }}
-        stylesheet={LAYOUT_CONFIG}
-        layout={LAYOUT_CONFIG_PRESET}
-        cy={(cy) => {
-          cyRef.current = cy; // Save a reference to Cytoscape instance
-        }}
-      />
+      {cytoscapeElements.length > 0 ? (
+        <CytoscapeComponent
+          elements={cytoscapeElements}
+          style={{ width: "100%", height: "100%" }}
+          stylesheet={stylesheet}
+          layout={LAYOUT_CONFIG_PRESET}
+          cy={(cy) => (cyRef.current = cy)}
+        />
+      ) : (
+        <div style={{ textAlign: "center", paddingTop: "50px" }}>
+          Loading Graph...
+        </div>
+      )}
     </div>
   );
 };
