@@ -11,7 +11,7 @@ const useStoreMapping = create((set, get) => {
     EdgesFilter: ["Dependencies", "Rules"],
     Contains: [],
     NotContains: [],
-    selectedNodeId: "1",
+    selectedNodeId: "19",
 
     // Generic action to update filters dynamically
     updateFilter: (category, updateFn) => {
