@@ -65,15 +65,15 @@ const Left = () => {
         </div>
       </div>
 
-      <div className="ml-[83px] mt-[29px] w-[587px] h-[264px] bg-[#FDCCCC] rounded-[10px] pt-[5px]">
-        <div className="mt-[5px] text-poppins font-semibold text-[22px] text-black">
-          Error while login
-        </div>
-        <div className="mt-[15px] ml-[16px] mr-[16px] text-poppins font-regular text-[22px] text-black text-left">
-          The long and ugly error message here, <br/>
-          We are not going to use any other sort of error management on this page
-        </div>
-      </div>
+      {/*<div className="ml-[83px] mt-[29px] w-[587px] h-[264px] bg-[#FDCCCC] rounded-[10px] pt-[5px]">*/}
+      {/*  <div className="mt-[5px] text-poppins font-semibold text-[22px] text-black">*/}
+      {/*    Error while login*/}
+      {/*  </div>*/}
+      {/*  <div className="mt-[15px] ml-[16px] mr-[16px] text-poppins font-regular text-[22px] text-black text-left">*/}
+      {/*    The long and ugly error message here, <br/>*/}
+      {/*    We are not going to use any other sort of error management on this page*/}
+      {/*  </div>*/}
+      {/*</div>*/}
 
     </div>
   );
@@ -83,8 +83,8 @@ const Right = () => {
   return (
     <div className="w-[889px] h-full">
       <div
-        className="mt-[29px] ml-[25px] w-[838px] h-[1083px] rounded-[10px] bg-cover bg-center"
-        style={{ backgroundImage: "url('/static/Idriss.jpg')" }}
+        className="mt-[29px] ml-[25px] w-[838px] h-[1083px] rounded-[10px] bg-cover bg-center scale-x-[-1]"
+        style={{ backgroundImage: "url('/static/lepere.jpg')" }}
       >
       </div>
     </div>
