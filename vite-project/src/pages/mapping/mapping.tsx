@@ -39,7 +39,7 @@ const Mapping = () => {
                 min="1"
                 max="5"
                 value={store.depthLevel}
-                onChange={(e) => store.setDepthLevel(e.target.value)}
+                onChange={(e) => store.setDepthLevel(Number(e.target.value))}
                 className=" w-[80%] mt-auto"
               />
             </div>

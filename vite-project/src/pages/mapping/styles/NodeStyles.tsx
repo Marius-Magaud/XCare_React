@@ -19,7 +19,7 @@ export const NODE_STYLE = {
 
 export const EDGE_STYLE = {
   "curve-style": "unbundled-bezier",
-  width: "data(width)",
+  "width": "10",
   "line-color": "data(color)",
   "source-arrow-color": "data(color)",
   "target-arrow-color": "data(color)",

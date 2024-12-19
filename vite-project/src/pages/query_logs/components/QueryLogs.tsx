@@ -9,7 +9,7 @@ const Array_QueryLogs = () => {
         switch (level) {
             case "DEBUG":
                 return "bg-[#ADD8E6]"; // Light Blue
-            case "WARN":
+            case "WARNING":
                 return "bg-[#FFE0B2]"; // Light Orange
             case "ERROR":
                 return "bg-[#FFCDD2]"; // Light Red

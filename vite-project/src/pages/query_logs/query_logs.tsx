@@ -7,8 +7,11 @@ import Rightbar_Section from "../../components/Rightbar_Section.tsx";
 import Checkbox from "../../components/rightbar/checkbox.tsx";
 import DateTimePicker from "../../components/rightbar/datetimepicker.tsx";
 import Multiple_Selector from "../../components/rightbar/multipleselector.tsx";
+import useStoreQueryLogs from "./store/STORE_QueryLogs.tsx";
 
 const Query_Logs = () => {
+
+  const store = useStoreQueryLogs()
 
   const categories = [
     { name: "API" },
@@ -46,18 +49,18 @@ const Query_Logs = () => {
           <Rightbar_Section title="Logging Level">
 
             <div className="w-full flex flex-wrap">
-              <Checkbox bgColorChecked="#ADD8E6" fillColor="#005ED7" label="DEBUG"/>
-              <Checkbox bgColorChecked="#B2DFDB" fillColor="#5A8E8A" label="INFO"/>
-              <Checkbox bgColorChecked="#FFE0B2" fillColor="#C29B61" label="WARNING"/>
-              <Checkbox bgColorChecked="#FFCDD2" fillColor="#A47076" label="ERROR"/>
-              <Checkbox bgColorChecked="#F8B2B2" fillColor="#985959" label="FATAL"/>
+              <Checkbox bgColorChecked="#ADD8E6" fillColor="#005ED7" label="DEBUG" store={store} filterCategory="LoggingLevel"/>
+              <Checkbox bgColorChecked="#B2DFDB" fillColor="#5A8E8A" label="INFO" store={store} filterCategory="LoggingLevel"/>
+              <Checkbox bgColorChecked="#FFE0B2" fillColor="#C29B61" label="WARNING" store={store} filterCategory="LoggingLevel"/>
+              <Checkbox bgColorChecked="#FFCDD2" fillColor="#A47076" label="ERROR" store={store} filterCategory="LoggingLevel"/>
+              <Checkbox bgColorChecked="#F8B2B2" fillColor="#985959" label="FATAL" store={store} filterCategory="LoggingLevel"/>
             </div>
 
           </Rightbar_Section>
           <Rightbar_Section title="TM1 Logger">
             <div className="w-full flex flex-wrap">
               {categories.map((category) => (
-                  <Checkbox label={category.name} width={"50%"}/>
+                  <Checkbox label={category.name} width={"50%"} store={store} filterCategory="TM1Logger"/>
               ))}
             </div>
           </Rightbar_Section>
