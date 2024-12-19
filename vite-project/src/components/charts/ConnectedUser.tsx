@@ -53,7 +53,7 @@ const ConnectedUser = () => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: true, // Disable legend
+        display: false, // Disable legend
       },
       tooltip: {
         backgroundColor: "rgba(0,0,0,1)",
