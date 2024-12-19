@@ -12,6 +12,7 @@ const useStoreMapping = create((set, get) => {
     Contains: [],
     NotContains: [],
     selectedNodeId: "19",
+    depthLevel: "1", 
 
     // Generic action to update filters dynamically
     updateFilter: (category, updateFn) => {
@@ -49,6 +50,11 @@ const useStoreMapping = create((set, get) => {
     // Action to set the selected node's ID
     setSelectedNodeId: (id) => {
       set(() => ({ selectedNodeId: id }));
+      logStore();
+    },
+
+    setDepthLevel: (level) => {
+      set(() => ({ depthLevel: level }));
       logStore();
     },
   };
