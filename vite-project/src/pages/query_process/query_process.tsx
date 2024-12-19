@@ -63,7 +63,7 @@ const Content = () => {
 const Body = () => {
     return (
         <div className="flex flex-grow flex-col items-start">
-            <Header/>
+            <Header title="Query - Process" subtitle="Discover your process execution"/>
             <Content />
         </div>
     );

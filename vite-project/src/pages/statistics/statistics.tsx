@@ -39,12 +39,12 @@ const Content = () => {
       </div>
       <div className="h-[600px] w-full flex box-border gap-[20px]">
         <div className="h-full w-[50%]">
-          <Item title="Startup Time Historic">
+          <Item title="Active Threads">
             <StartupTime/>
           </Item>
         </div>
         <div className="h-full w-[50%]">
-          <Item title="Active Threads">
+          <Item title="Startup Time Historic">
             <LineChart/>
           </Item>
         </div>

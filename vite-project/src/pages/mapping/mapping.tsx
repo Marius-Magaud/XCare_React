@@ -71,7 +71,7 @@ const Content = () => {
 const Body = () => {
     return (
         <div className="flex flex-grow flex-col items-start">
-            <Header logo='Mapping.svg' settings={true}/>
+            <Header title="Mapping" logo='Mapping.svg' settings={true}/>
             <Content />
         </div>
     );
