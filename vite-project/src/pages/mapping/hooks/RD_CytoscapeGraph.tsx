@@ -19,14 +19,14 @@ const fetchMappingData = async () => {
   // Construire l'URL de l'API
   const url = `${serverAddress}/mapping/getAround`;
 
-  const {NodesFilter, EdgesFilter, selectedNodeId} = useStoreMapping.getState()
+  const {NodesFilter, EdgesFilter, selectedNodeId, depthLevel} = useStoreMapping.getState()
 
   // Préparer le JSON vide
   const mappingContent: MappingData = {
     NodesTypes: NodesFilter,
     EdgesTypes: EdgesFilter,
     IntraLinks: "True",
-    Depth: 2,
+    Depth: depthLevel,
     ID: selectedNodeId,
   };
 

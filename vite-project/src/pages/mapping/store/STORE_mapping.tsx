@@ -8,11 +8,11 @@ const useStoreMapping = create((set, get) => {
   return {
     // Initial state
     NodesFilter: ["Cube", "Chores", "Dimension", "Process"],
-    EdgesFilter: ["Dependencies", "Rules"],
+    EdgesFilter: ["Dependencies"],
     Contains: [],
     NotContains: [],
     selectedNodeId: "19",
-    depthLevel: "1", 
+    depthLevel: 2,
 
     // Generic action to update filters dynamically
     updateFilter: (category, updateFn) => {
