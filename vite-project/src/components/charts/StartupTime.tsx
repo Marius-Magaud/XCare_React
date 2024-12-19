@@ -40,7 +40,7 @@ const StartupTime = () => {
     labels: daysOfWeek,
     datasets: [
       {
-        label: "Startup time by month",
+        label: "Active Threads",
         data: dataValues,
         backgroundColor: "#B2DFDB",
         borderRadius: 10, // Adding border radius
@@ -53,7 +53,8 @@ const StartupTime = () => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: true,
+        display: false,
+       
       },
       tooltip: {
         backgroundColor: "rgba(0,0,0,1)",

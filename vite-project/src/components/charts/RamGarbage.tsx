@@ -66,7 +66,7 @@ const RamGarbage = () => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: true,
+        display: false,
       },
       tooltip: {
         mode: "index",

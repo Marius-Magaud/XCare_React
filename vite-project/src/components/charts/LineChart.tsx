@@ -50,7 +50,7 @@ const LineChart = () => {
     labels: months,
     datasets: [
       {
-        label: "Active Threads",
+        label: "Startup time by month",
         data: dataValues,
         backgroundColor: "#797896", // Light blue for filled area
         borderColor: "#797896", // Line color
@@ -70,7 +70,7 @@ const LineChart = () => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: true,
+        display: false,
       },
       tooltip: {
         backgroundColor: "rgba(0,0,0,0.5)",
