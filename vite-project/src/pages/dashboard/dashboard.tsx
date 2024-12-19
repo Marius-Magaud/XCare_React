@@ -4,8 +4,7 @@ import Item   from "../../components/Item.tsx";
 
 import Array_LiveThread from "./components/LiveThreads.tsx";
 import Array_LiveLogs   from "./components/LiveLogs.tsx";
-//import BarChart from "../../components/charts/BarChart.tsx";
-import LiveViewChart from "../../components/charts/LiveView.tsx";
+import BarChart from "../../components/charts/BarChart.tsx";
 
 
 const Dashboard = () => {
@@ -32,7 +31,7 @@ const Content = () => {
         </div>
         <div className="h-full w-[40%] ">
           <Item title="Wait History">
-            <LiveViewChart/>
+            <BarChart/>
           </Item>
         </div>
       </div>
